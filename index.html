@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>do today</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>do today</h1>
+        <div id="random-task" class="text-lg"></div>
+        <button id="add-random-task-btn" class="button-primary">add to list</button>
+        <button id="new-random-task-btn" class="button-secondary">new random task</button>
+    </div>
+
+    <div class="container">
+        <h1>add new task</h1>
+        <input type="text" id="new-task-input" class="input-field">
+        <button id="add-new-task-btn" class="button-primary">add task</button>
+    </div>
+
+    <div class="container">
+        <h1>list</h1>
+        <ul id="task-list" class="task-list"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

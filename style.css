@@ -1,0 +1,124 @@
+/* style.css */
+
+body {
+    font-family: 'Roboto Slab', serif;
+    background-color: #1a202c; /* تنظیم رنگ پس‌زمینه بدنه صفحه */
+    color: #ffffff; /* تنظیم رنگ متن */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 28rem; /* حداکثر عرض برای حاشیه دور اجزای اصلی */
+    margin-top: 2rem; /* فاصله بالایی از بالا */
+    background-color: #2d3748; /* رنگ پس‌زمینه بخش‌های اصلی */
+    padding: 1.5rem; /* حاشیه داخلی اطراف محتوا */
+    border-radius: 0.75rem; /* شعاع گوشه‌ها */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* سایه */
+    transition: transform 0.3s ease; /* انیمیشن تغییر اندازه */
+}
+
+.container:hover {
+    transform: scale(1.05); /* تغییر اندازه در حالت هاور */
+}
+
+h1 {
+    font-size: 1.875rem; /* اندازه قلم تیتر اولیه */
+    font-weight: 700; /* وزن قلم تیتر اولیه */
+    margin-bottom: 1.5rem; /* فاصله پایینی از تیتر اولیه */
+    color: #cbd5e0; /* رنگ متن تیتر اولیه */
+}
+
+.text-lg {
+    font-size: 1.125rem; /* اندازه قلم متن بزرگ */
+    margin-bottom: 1rem; /* فاصله پایینی از متن بزرگ */
+    color: #a0aec0; /* رنگ متن */
+}
+
+.button-primary {
+    background-color: #4299e1; /* رنگ پس‌زمینه دکمه اصلی */
+    color: #ffffff; /* رنگ متن دکمه اصلی */
+    font-weight: 600; /* وزن قلم دکمه اصلی */
+    padding: 0.5rem 1rem; /* حاشیه داخلی اطراف متن دکمه اصلی */
+    border: none; /* حذف حاشیه دکمه اصلی */
+    border-radius: 0.375rem; /* شعاع گوشه‌های دکمه اصلی */
+    margin-right: 0.5rem; /* فاصله راستی از دکمه دیگر */
+    cursor: pointer; /* نشانگر موس */
+    transition: background-color 0.3s ease; /* انیمیشن تغییر رنگ پس‌زمینه */
+}
+
+.button-primary:hover {
+    background-color: #3182ce; /* رنگ پس‌زمینه در حالت هاور */
+}
+
+.button-secondary {
+    background-color: #9f7aea; /* رنگ پس‌زمینه دکمه ثانویه */
+    color: #ffffff; /* رنگ متن دکمه ثانویه */
+    font-weight: 600; /* وزن قلم دکمه ثانویه */
+    padding: 0.5rem 1rem; /* حاشیه داخلی اطراف متن دکمه ثانویه */
+    border: none; /* حذف حاشیه دکمه ثانویه */
+    border-radius: 0.375rem; /* شعاع گوشه‌های دکمه ثانویه */
+    cursor: pointer; /* نشانگر موس */
+    transition: background-color 0.3s ease; /* انیمیشن تغییر رنگ پس‌زمینه */
+}
+
+.button-secondary:hover {
+    background-color: #805ad5; /* رنگ پس‌زمینه در حالت هاور */
+}
+
+.input-field {
+    padding: 0.75rem; /* حاشیه داخلی اطراف ورودی متنی */
+    border-radius: 0.375rem; /* شعاع گوشه‌های ورودی متنی */
+    border: 1px solid #4a5568; /* حاشیه چین */
+    background-color: #2d3748; /* رنگ پس‌زمینه ورودی متنی */
+    color: #cbd5e0; /* رنگ متن */
+    margin-bottom: 1rem; /* فاصله پایینی از ورودی متنی */
+    width: calc(100% - 2rem); /* عرض ورودی متنی */
+}
+
+.task-list {
+    list-style-type: disc; /* نوع نمادگذاری لیست */
+    list-style-position: inside; /* موقعیت نمادگذاری لیست */
+    text-align: left; /* تراز متن چپ */
+    color: #a0aec0; /* رنگ متن */
+    padding-left: 1.5rem; /* حاشیه چپ لیست */
+    margin-top: 0; /* فاصله بالایی از لیست */
+}
+
+.task-list li {
+    padding: 0.75rem; /* حاشیه داخلی اطراف آیتم لیست */
+    background-color: #4a5568; /* رنگ پس‌زمینه آیتم لیست */
+    margin-bottom: 0.5rem; /* فاصله پایینی از آیتم لیست */
+    border-radius: 0.375rem; /* شعاع گوشه‌های آیتم لیست */
+    display: flex; /* نمایش اجزای آیتم لیست به صورت فلکس */
+    justify-content: space-between; /* ترتیب محتوا */
+    align-items: center; /* ترتیب محتوا */
+}
+
+.task-list li .delete-button {
+    background-color: #e53e3e; /* رنگ پس‌زمینه دکمه حذف */
+    color: #ffffff; /* رنگ متن دکمه حذف */
+    font-weight: 600; /* وزن قلم دکمه حذف */
+    padding: 0.375rem 0.75rem; /* حاشیه داخلی اطراف متن دکمه حذف */
+    border: none; /* حذف حاشیه دکمه حذف */
+    border-radius: 0.25rem; /* شعاع گوشه‌های دکمه حذف */
+    cursor: pointer; /* نشانگر موس */
+    transition: background-color 0.3s ease; /* انیمیشن تغییر رنگ پس‌زمینه */
+}
+
+.task-list li .delete-button:hover {
+    background-color: #c53030; /* رنگ پس‌زمینه در حالت هاور */
+}
+#random-task {
+    font-weight: 700; /* افزایش وضوح فونت */
+    padding: 1rem; /* حاشیه داخلی اطراف متن */
+    background-color: #2d3748; /* رنگ پس‌زمینه کادر */
+    border-radius: 0.375rem; /* شعاع گوشه‌ها */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* سایه */
+}
