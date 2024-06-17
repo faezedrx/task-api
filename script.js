@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
             listItem.textContent = randomTodo.todo;
 
             const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'حذف';
+            deleteButton.textContent = 'delete';
             deleteButton.className = 'delete-button';
             deleteButton.addEventListener('click', () => {
                 listItem.remove(); // حذف آیتم از لیست
