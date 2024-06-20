@@ -9,24 +9,22 @@ document.addEventListener('DOMContentLoaded', () => {
     let randomTodo = null;
 
     // دریافت و نمایش تسک تصادفی
-    const fetchRandomTask = () => {
-        fetch('https://dummyjson.com/todos/random')
-            .then(res => res.json())
-            .then(data => {
-                randomTodo = data;
+    const fetchRandomTask = async () => {
+        try {
+            const res = await fetch('https://dummyjson.com/todos/random');
+            const data = await res.json();
+            randomTodo = data;
+
+            // فقط تسک‌های غیرکامپلیت را نمایش دهید
+            if (!randomTodo.completed) {
+                randomTaskDiv.innerHTML = randomTodo.todo;
+            } else {
                 randomTaskDiv.innerHTML = '';
-                
-                // فقط تسک‌های غیرکامپلیت را نمایش دهید
-                if (!randomTodo.completed) {
-                    const taskItem = document.createElement('div');
-                    taskItem.textContent = randomTodo.todo;
-                    randomTaskDiv.appendChild(taskItem);
-                }
-            })
-            .catch(error => {
-                randomTaskDiv.innerHTML = ' loading failed!!';
-                console.error('Error fetching random task:', error);
-            });
+            }
+        } catch (error) {
+            randomTaskDiv.innerHTML = 'Error fetching !!';
+            console.error('Error fetching random task:', error);
+        }
     };
 
     fetchRandomTask(); // دریافت اولیه تسک تصادفی
@@ -49,14 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    addRandomTaskBtn.addEventListener('click', () => {
-        addRandomTaskToList();
-    });
+    addRandomTaskBtn.addEventListener('click', addRandomTaskToList);
 
     // اضافه کردن تسک جدید تصادفی
-    newRandomTaskBtn.addEventListener('click', () => {
-        fetchRandomTask();
-    });
+    newRandomTaskBtn.addEventListener('click', fetchRandomTask);
 
     // اضافه کردن تسک جدید به لیست
     addNewTaskBtn.addEventListener('click', () => {
