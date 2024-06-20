@@ -2,8 +2,8 @@
 
 body {
     font-family: 'Roboto Slab', serif;
-    background-color: #1a202c; /* تنظیم رنگ پس‌زمینه بدنه صفحه */
-    color: #ffffff; /* تنظیم رنگ متن */
+    background-color: #1a202c; 
+    color: #ffffff; 
     display: flex;
     flex-direction: column;
     align-items: center;
