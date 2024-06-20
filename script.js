@@ -8,14 +8,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let randomTodo = null;
 
-    // دریافت و نمایش تسک تصادفی
+    // Function to show loading message
+    const showLoading = () => {
+        randomTaskDiv.innerHTML = 'Loading...';
+    };
+
+    // Function to hide loading message
+    const hideLoading = () => {
+        randomTaskDiv.innerHTML = '';
+    };
+
+    // Fetch and display random task
     const fetchRandomTask = async () => {
+        showLoading();
         try {
             const res = await fetch('https://dummyjson.com/todos/random');
             const data = await res.json();
             randomTodo = data;
 
-            // فقط تسک‌های غیرکامپلیت را نمایش دهید
+            hideLoading();
+
+            // Display only non-completed tasks
             if (!randomTodo.completed) {
                 randomTaskDiv.innerHTML = randomTodo.todo;
             } else {
@@ -27,11 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    fetchRandomTask(); // دریافت اولیه تسک تصادفی
+    fetchRandomTask(); // Initial fetch of random task
 
-    // اضافه کردن تسک تصادفی به لیست
+    // Add random task to the list
     const addRandomTaskToList = () => {
-        if (randomTodo && !randomTodo.completed) { // اضافه کردن تنها تسک‌های غیرکامپلیت
+        if (randomTodo && !randomTodo.completed) { // Add only non-completed tasks
             const listItem = document.createElement('li');
             listItem.textContent = randomTodo.todo;
 
@@ -39,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             deleteButton.textContent = 'delete';
             deleteButton.className = 'delete-button';
             deleteButton.addEventListener('click', () => {
-                listItem.remove(); // حذف آیتم از لیست
+                listItem.remove(); // Remove item from list
             });
 
             listItem.appendChild(deleteButton);
@@ -49,10 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     addRandomTaskBtn.addEventListener('click', addRandomTaskToList);
 
-    // اضافه کردن تسک جدید تصادفی
+    // Fetch new random task
     newRandomTaskBtn.addEventListener('click', fetchRandomTask);
 
-    // اضافه کردن تسک جدید به لیست
+    // Add new task to the list
     addNewTaskBtn.addEventListener('click', () => {
         const newTask = newTaskInput.value.trim();
         if (newTask) {
@@ -63,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
             deleteButton.textContent = 'delete';
             deleteButton.className = 'delete-button';
             deleteButton.addEventListener('click', () => {
-                listItem.remove(); // حذف آیتم از لیست
+                listItem.remove(); // Remove item from list
             });
 
             listItem.appendChild(deleteButton);
