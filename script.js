@@ -15,15 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 randomTodo = data;
                 randomTaskDiv.innerHTML = '';
-                const taskItem = document.createElement('div');
-                taskItem.textContent = randomTodo.todo;
-
-                if (randomTodo.completed) {
-                    taskItem.style.textDecoration = 'line-through';
-                    taskItem.style.color = '#718096';
+                
+                // فقط تسک‌های غیرکامپلیت را نمایش دهید
+                if (!randomTodo.completed) {
+                    const taskItem = document.createElement('div');
+                    taskItem.textContent = randomTodo.todo;
+                    randomTaskDiv.appendChild(taskItem);
                 }
-
-                randomTaskDiv.appendChild(taskItem);
             })
             .catch(error => {
                 randomTaskDiv.innerHTML = 'خطا در بارگذاری داده‌ها';
@@ -35,24 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // اضافه کردن تسک تصادفی به لیست
     const addRandomTaskToList = () => {
-        if (randomTodo) {
+        if (randomTodo && !randomTodo.completed) { // اضافه کردن تنها تسک‌های غیرکامپلیت
             const listItem = document.createElement('li');
             listItem.textContent = randomTodo.todo;
 
             const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'delete';
+            deleteButton.textContent = 'حذف';
             deleteButton.className = 'delete-button';
             deleteButton.addEventListener('click', () => {
                 listItem.remove(); // حذف آیتم از لیست
             });
 
             listItem.appendChild(deleteButton);
-
-            if (randomTodo.completed) {
-                listItem.style.textDecoration = 'line-through';
-                listItem.style.color = '#718096';
-            }
-
             taskList.appendChild(listItem);
         }
     };
@@ -74,14 +66,13 @@ document.addEventListener('DOMContentLoaded', () => {
             listItem.textContent = newTask;
 
             const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'delete';
+            deleteButton.textContent = 'حذف';
             deleteButton.className = 'delete-button';
             deleteButton.addEventListener('click', () => {
                 listItem.remove(); // حذف آیتم از لیست
             });
 
             listItem.appendChild(deleteButton);
-
             taskList.appendChild(listItem);
             newTaskInput.value = '';
         }
