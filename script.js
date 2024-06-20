@@ -23,8 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
         showLoading();
         try {
             const res = await fetch('https://dummyjson.com/todos/random');
+            if (!res.ok) {
+                throw new Error('Network response was not ok');
+            }
             const data = await res.json();
             randomTodo = data;
+
+            // Debugging log
+            console.log('Fetched random task:', randomTodo);
 
             hideLoading();
 
@@ -32,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!randomTodo.completed) {
                 randomTaskDiv.innerHTML = randomTodo.todo;
             } else {
-                randomTaskDiv.innerHTML = '';
+                randomTaskDiv.innerHTML = 'No uncompleted tasks found';
             }
         } catch (error) {
             randomTaskDiv.innerHTML = 'Error fetching !!';
