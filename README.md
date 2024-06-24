@@ -11,7 +11,7 @@ This repository contains a simple yet powerful To Do application that allows use
 
 The To Do App is a web application built with vanilla JavaScript, HTML, and CSS. It allows users to manage their tasks efficiently. Users can fetch random tasks from an external API and add them to their task list, as well as add custom tasks and delete them when completed.
 
-##✨ Features
+## ✨ Features
 
 - 🗂️ Fetch a random task from an external API.
 - ➕ Add the random task to the task list.
