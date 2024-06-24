@@ -1,8 +1,8 @@
-#📋 To Do App
+# 📋 To Do App
 
 This repository contains a simple yet powerful To Do application that allows users to fetch random tasks, add them to a list, and manage their custom tasks with ease.
 
-##📚 Table of Contents
+## 📚 Table of Contents
 - 📖 **Description**
 - ✨ **Features**
 - ⚙️ **Installation**
