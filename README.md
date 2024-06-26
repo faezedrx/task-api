@@ -23,7 +23,7 @@ The To Do App is a web application built with vanilla JavaScript, HTML, and CSS.
 
 Clone the repository:
 
-`git clone https://github.com/yourusername/task-api.git`
+`git clone https://github.com/faezedrx/task-api.git`
 
 Navigate to the project directory:
 
